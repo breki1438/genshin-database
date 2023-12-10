@@ -8,7 +8,7 @@ import CharacterSKillsBox from '@/components/CharacterSkillsBox';
 
 export default async function Dupa({ params }: { params: {character: string} }) {
     revalidatePath('/');
-    const jebanko = await fetch('http://localhost:3000/api/characters');
+    const jebanko = await fetch(`https://genshin-database-ten.vercel.app/api/characters`);
     const sraki = await jebanko.json();
     const postac = params.character;
     const selectedCharacter = sraki.characters.find((character: any) => character.url === postac);
