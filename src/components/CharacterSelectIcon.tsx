@@ -1,6 +1,6 @@
 export default function CharacterSelectIcon({ sraki }: {sraki: any}) {
     return (
-            <div className='flex flex-wrap ml-8'>
+            <div className='flex flex-wrap ml-8 max-w-7xl justify-start m-auto'>
                 {sraki.characters.map((sraka: any) => {
                     const imagePath = `/images/${sraka.url}/${sraka.url}.webp`;
                     const characterUrl = `/characters/${sraka.url}`;

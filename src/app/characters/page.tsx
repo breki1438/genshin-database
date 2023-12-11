@@ -1,5 +1,5 @@
 import { revalidatePath } from 'next/cache'
-import SideBar from '@/components/SideBar';
+import NavBar from '@/components/NavBar';
 import CharacterSelectIcon from '@/components/CharacterSelectIcon';
 
 export default async function jebaneGowno() {
@@ -8,9 +8,12 @@ export default async function jebaneGowno() {
     const sraki = await jebanko.json();
     //console.log(sraki);
     return (
-        <div className='flex flex-row bg-darker'>
-            <SideBar />
-            <CharacterSelectIcon sraki={ sraki } />
+        <div className='flex flex-col bg-darker'>
+            <NavBar />
+            <div className='flex justify-center m-auto mt-5'>
+                <CharacterSelectIcon sraki={ sraki } />      
+            </div>
+                 
         </div>
     );
   }
