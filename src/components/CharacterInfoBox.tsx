@@ -6,7 +6,7 @@ export default function CharacterInfoBox({ character }: { character: any }) {
     const local = `/images/localspecialities/Item_${character.localSpeciality.replaceAll(' ', '_')}.webp`
     const material = `/images/materials/Item_${character.enemyDrop.replaceAll(' ', '_')}.webp`;
     return (
-        <div className='bg-poldark rounded-xl my-5 shadow-around text-2xl w-96 md:w-80 h-fit'>
+        <div className='bg-poldark rounded-xl my-5 shadow-outer text-2xl w-96 md:w-80 h-fit'>
             <div className='flex flex-col opacity-95'>
                 <div className='text-center py-2'>
                     Materials

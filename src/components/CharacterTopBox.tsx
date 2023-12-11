@@ -5,7 +5,7 @@ export default function CharacterTopBox({ selectedCharacter, color }: { selected
     const weapon = `/images/weapontype/Icon_${selectedCharacter.weapon}.webp`;
     const description = selectedCharacter.description.split('\n');
     return (
-        <div className='bg-poldark w-full max-w-3xl xl:max-w-7xl my-5 p-3 md:rounded-xl flex flex-row shadow-around bg-cover'>
+        <div className='bg-poldark w-full max-w-3xl xl:max-w-7xl my-5 p-3 md:rounded-xl flex flex-row shadow-outer bg-cover'>
             <img className='rounded-full h-24 bg-neutral-300 shadow-around' src={imagePath}/>
             <div className='flex flex-col w-full ml-3'>
                 <div className='flex flex-wrap items-center justify-start'>

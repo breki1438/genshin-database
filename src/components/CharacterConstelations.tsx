@@ -1,13 +1,13 @@
 import ConstellationElement from "./constallation/ConstellationElement";
 
-export default function CharacterConstelations({ constellation, character, color }: {constellation: any, character: any, color: any}) {
+export default function CharacterConstelations({ character, color }: {character: any, color: any}) {
     let constellationImages = [];
     let constellations = [];
     for (let i=1; i<=6; i++) {
         constellationImages.push(`/images/${character.url}/constellations/constellation_${i}.png`);
     }
     for (let i=1; i<=6; i++) {
-        const dupa = constellation[character.url][i];
+        const dupa = character.constellations[i];
         constellations.push(dupa)
     }
     //console.log(constellations[0]);

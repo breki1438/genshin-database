@@ -2,10 +2,10 @@ import NavBar from "@/components/NavBar";
 
 export default function jebaneGowno() {
   return (
-    <div className="flex flex-col bg-darker">
+    <div className="bg-darker h-screen">
       <NavBar />
-      <div className='flex flex-grow bg-[url(/images/furfur.jpg)] bg-contain bg-center h-screen bg-no-repeat'>
-
+      <div className='flex justify-center'>
+        <img className=' max-w-md xl:max-w-7xl absolute top-0 bottom-0 h-full' src='/images/furfur.jpg' />
       </div>     
     </div>
   );

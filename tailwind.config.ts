@@ -13,7 +13,8 @@ const config: Config = {
       },
 
       margin: {
-        '88': '22rem'
+        '88': '22rem',
+        '1024': '1024px'
       },
 
       backgroundPosition: {
@@ -27,7 +28,8 @@ const config: Config = {
       },
 
       boxShadow: {
-        'around': '0 0 8px 4px rgba(0, 0, 0, 0.75)',
+        'outer': '0px 4px 17px 1px rgba(0, 0, 0, .25)',
+        'around': '0px 1px 3px 1px rgba(0, 0, 0, .15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)'
       },
 
       width: {
@@ -40,6 +42,7 @@ const config: Config = {
 
       height: {
         '3000': '3000px',
+        'inherit': 'inherit',
       },
 
       colors: {
@@ -49,6 +52,10 @@ const config: Config = {
         'second': '#3B4773',
         'third': '#FFFFFF',
       },
+
+      transitionProperty: {
+        'height': 'height',
+      }
     },
   },
   plugins: [],
