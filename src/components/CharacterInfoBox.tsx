@@ -1,6 +1,6 @@
 export default function CharacterInfoBox({ character }: { character: any }) {
     const book = `/images/books/${character.book.replaceAll(" ", "_")}.webp`;
-    const weeklyBoss = `/images/weeklyBosses/${character.weeklyBoss.replaceAll(" ", "_")}.webp`;
+    const weeklyBoss = `/images/weeklybosses/${character.weeklyBoss.replaceAll(" ", "_")}.webp`;
     const crystal = `/images/crystals/${character.crystal.replaceAll(" ", "_")}.webp`;
     const boss = `/images/bosses/${character.bossMaterial.replaceAll(" ", "_")}.webp`;
     const local = `/images/localspecialities/Item_${character.localSpeciality.replaceAll(' ', '_')}.webp`
