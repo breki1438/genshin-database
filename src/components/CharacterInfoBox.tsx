@@ -1,10 +1,10 @@
 export default function CharacterInfoBox({ character }: { character: any }) {
-    const book = `/images/books/${character.book}.webp`;
-    const weeklyBoss = `/images/weeklyBosses/${character.weeklyBoss}.webp`;
-    const crystal = `/images/crystals/${character.crystal}.webp`;
-    const boss = `/images/bosses/${character.bossMaterial}.webp`;
-    const local = `/images/localspecialities/Item_${character.localSpeciality.replace(' ', '_')}.webp`
-    const material = `/images/materials/Item_${character.enemyDrop.replace(' ', '_')}.webp`;
+    const book = `/images/books/${character.book.replaceAll(" ", "_")}.webp`;
+    const weeklyBoss = `/images/weeklyBosses/${character.weeklyBoss.replaceAll(" ", "_")}.webp`;
+    const crystal = `/images/crystals/${character.crystal.replaceAll(" ", "_")}.webp`;
+    const boss = `/images/bosses/${character.bossMaterial.replaceAll(" ", "_")}.webp`;
+    const local = `/images/localspecialities/Item_${character.localSpeciality.replaceAll(' ', '_')}.webp`
+    const material = `/images/materials/Item_${character.enemyDrop.replaceAll(' ', '_')}.webp`;
     return (
         <div className='bg-poldark rounded-xl my-5 shadow-around text-2xl w-96 md:w-80 h-fit'>
             <div className='flex flex-col opacity-95'>
