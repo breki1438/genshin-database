@@ -1,11 +1,10 @@
 import { revalidatePath } from 'next/cache'
-import SideBar from '@/components/SideBar';
 import CharacterInfoBox from '@/components/CharacterInfoBox';
 import CharacterTopBox from '@/components/CharacterTopBox';
 import CharacterConstelations from '@/components/CharacterConstelations';
 import NavBar from '@/components/NavBar';
 import CharacterSKillsBox from '@/components/CharacterSkillsBox';
-import RecommendedArticacts from '@/components/artifacts/RecommendedArtifacts';
+import RecommendedArtifacts from '@/components/artifacts/RecommendedArtifacts';
 
 export default async function Dupa({ params }: { params: {character: string} }) {
     revalidatePath('/');
@@ -29,7 +28,7 @@ export default async function Dupa({ params }: { params: {character: string} }) 
                         <CharacterTopBox selectedCharacter={selectedCharacter} color={pickColor} />   
                     </div>
                     <div className='flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center md:justify-between bg-top bg-no-repeat bg-auto md:bg-contain' style={{backgroundImage: backgroundPath}}>
-                        <RecommendedArticacts />
+                        <RecommendedArtifacts character={selectedCharacter} />
                         <CharacterInfoBox character={selectedCharacter} />
                     </div>
                     <div className='flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>

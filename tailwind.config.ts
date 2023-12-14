@@ -46,7 +46,7 @@ const config: Config = {
       },
 
       colors: {
-        'poldark': 'rgba(57, 52, 64, 0.95)',
+        'poldark': 'rgba(47, 42, 54, 0.75)',
         'darker': '#222222',
         'dark': '#1D1D26',
         'second': '#3B4773',
