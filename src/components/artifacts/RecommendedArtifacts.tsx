@@ -15,7 +15,7 @@ export default function RecommendedArtifacts({ character }: { character: any }) 
     }
     console.log(artifactSets);
     return (
-        <div className='bg-poldark rounded-xl mt-1024 md:mt-0 my-5 shadow-outer text-2xl w-96 md:w-80 h-fit'>
+        <div className='bg-poldark rounded-xl md:mt-0 my-5 shadow-outer text-2xl w-96 md:w-80 h-fit'>
             <div className='flex flex-col opacity-95'>
                 <div className='text-center py-2'>
                     Artifact Stats

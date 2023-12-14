@@ -28,6 +28,238 @@
                     "description": "Gathering truths unnumbered and wishes uncounted, the Raiden Shogun unleashes the Musou no Hitotachi and deals AoE Electro DMG, using Musou Isshin in combat for a certain duration afterward. The DMG dealt by Musou no Hitotachi and Musou Isshin's attacks will be increased based on the number of Chakra Desiderata's Resolve stacks consumed when this skill is used.\\n\\n Musou Isshin\\n While in this state, the Raiden Shogun will wield her tachi in battle, while her Normal, Charged, and Plunging Attacks will be infused with Electro DMG, which cannot be overridden. When such attacks hit opponents, she will regenerate Energy for all nearby party members. Energy can be restored this way once every 1s, and this effect can be triggered 5 times throughout this skill's duration. While in this state, the Raiden Shogun's resistance to interruption is increased, and she is immune to Electro-Charged reaction DMG. While Musou Isshin is active, the Raiden Shogun's Normal, Charged, and Plunging Attack DMG will be considered Elemental Burst DMG. The effects of Musou Isshin will be cleared when the Raiden Shogun leaves the field.\\n\\n Chakra Desiderata\\n When nearby party members (excluding the Raiden Shogun herself) use their Elemental Bursts, the Raiden Shogun will build up Resolve stacks based on the Energy Cost of these Elemental Bursts. The maximum number of Resolve stacks is 60. The Resolve gained by Chakra Desiderata will be cleared 300s after the Raiden Shogun leaves the field."
                 }
             },
+            "passives": [
+                {
+                    "name": "Wishes Unnumbered",
+                    "description": "When nearby party members gain Elemental Orbs or Particles, Chakra Desiderata gains 2 Resolve stacks. This effect can occur once every 3s."
+                },
+                {
+                    "name": "Enlightened One",
+                    "description": "Each 1% above 100% Energy Recharge that the Raiden Shogun possesses grants her: 0.6% greater Energy restoration from Musou Isshin 0.4% Electro DMG Bonus"
+                },
+                {
+                    "name": "All-Preserver",
+                    "description": "Mora expended when ascending Swords and Polearms is decreased by 50%."
+                }
+            ],
+            "ascension": {
+                "one": [
+                    {
+                        "name": "Ascend",
+                        "before": "-",
+                        "after": "0"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "-",
+                        "after": "1005 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "-",
+                        "after": "26 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "-",
+                        "after": "61 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "-",
+                        "after": "0% Energy Recharge"
+                    }
+                ],
+                "twenty": [
+                    {
+                        "name": "Ascend",
+                        "before": "0",
+                        "after": "1"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "2606 HP",
+                        "after": "3468 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "68 ATK",
+                        "after": "91 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "159 DEF",
+                        "after": "212 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "0% Energy Recharge",
+                        "after": "0% Energy Recharge"
+                    }
+                ],
+                "forty": [
+                    {
+                        "name": "Ascend",
+                        "before": "1",
+                        "after": "2"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "5189 HP",
+                        "after": "5801 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "136 ATK",
+                        "after": "152 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "317 DEF",
+                        "after": "355 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "0% Energy Recharge",
+                        "after": "8.0% Energy Recharge"
+                    }
+                ],
+                "fifty": [
+                    {
+                        "name": "Ascend",
+                        "before": "2",
+                        "after": "3"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "6675 HP",
+                        "after": "7491 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "174 ATK",
+                        "after": "196 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "408",
+                        "after": "458 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "8.0% Energy Recharge",
+                        "after": "16.0% Energy Recharge"
+                    }
+                ],
+                "sixty": [
+                    {
+                        "name": "Ascend",
+                        "before": "3",
+                        "after": "4"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "8373 HP",
+                        "after": "8985 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "219 ATK",
+                        "after": "235 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "512 DEF",
+                        "after": "549 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "16.0% Energy Recharge",
+                        "after": "16.0% Energy Recharge"
+                    }
+                ],
+                "seventy": [
+                    {
+                        "name": "Ascend",
+                        "before": "4",
+                        "after": "5"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "9875 HP",
+                        "after": "10487 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "258 ATK",
+                        "after": "274 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "604 DEF",
+                        "after": "641 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "16.0% Energy Recharge",
+                        "after": "24.0% Energy Recharge"
+                    }
+                ],
+                "eighty": [
+                    {
+                        "name": "Ascend",
+                        "before": "5",
+                        "after": "6"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "11388 HP",
+                        "after": "12000 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "298 ATK",
+                        "after": "314 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "696 DEF",
+                        "after": "734 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "24.0% Energy Recharge",
+                        "after": "32.0% Energy Recharge"
+                    }
+                ],
+                "ninety": [
+                    {
+                        "name": "Ascend",
+                        "before": "6",
+                        "after": "7"
+                    },
+                    {
+                        "name": "Base HP",
+                        "before": "12907 HP",
+                        "after": "12907 HP"
+                    },
+                    {
+                        "name": "Base ATK",
+                        "before": "337 ATK",
+                        "after": "337 ATK"
+                    },
+                    {
+                        "name": "Base DEF",
+                        "before": "789 DEF",
+                        "after": "789 DEF"
+                    },
+                    {
+                        "name": "Energy Recharge",
+                        "before": "32.0% Energy Recharge",
+                        "after": "32.0% Energy Recharge"
+                    }
+                ]
+            },
             "constellations": {
                 "1": {
                     "name": "Ominous Inscription",
@@ -78,7 +310,20 @@
                         "2": "Gilded Dreams"
                     }
                 }
+            },
+            "weapons": {
+                "General": ["Engulfing Lightning", "Staff of Homa", "Primordial Jade Winged-Spear", "Staff of the Scarlet Sands", "The Catch"],
+                "Hyperbloom": ["Dragon's Bane", "Wlocznia", "Polearm"]
+            },
+            "artifact": {
+                "General": ["HP, ATK, Energy Recharge / ATK%, Electro DMG / ATK%, CRIT Rate / CRIT DMG"],
+                "Hyperbloom": ["HP, ATK, Elemental Mastery, Elemental Mastery, Elemental Mastery"]
+            },
+            "artifactSets": {
+                "General": ["Emblem of Severed Fate"],
+                "Hyperbloom": ["Flower of Paradise Lost", "Gilded Dreams"]
             }
+                
         },
         {
             "name": "Yoimiya",

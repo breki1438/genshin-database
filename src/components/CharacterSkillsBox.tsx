@@ -1,3 +1,4 @@
+import PassiveElement from "./passives/PassiveElement";
 import TalentElement from "./talents/TalentElement";
 
 export default function CharacterSKillsBox({character, color}: {character: any, color: any}) {
@@ -16,8 +17,8 @@ export default function CharacterSKillsBox({character, color}: {character: any, 
                     Passives
                 </div>
                 <div className="flex flex-col">
-                    echojezu?
-                </div>                                                          
+                    <PassiveElement character={character} talent='normalAttack'/>
+                </div>                                                         
             </div>
         </div>
     )
