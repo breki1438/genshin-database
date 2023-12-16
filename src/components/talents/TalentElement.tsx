@@ -3,7 +3,6 @@
 export default function TalentElement({character, talent}: {character: any, talent: any}) {
     const element = 'Electro';
     const style = `styles.${element}`;
-    console.log(style);
     let talentElement = character.talents[talent].description.replaceAll('\\n', '<br />');
     talentElement = talentElement.replaceAll(`${element}`, `<span class=${element}>${element}</span>`);
     const talentImage = `/images/${character.url}/talents/${talent}.png`;

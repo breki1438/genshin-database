@@ -286,43 +286,34 @@
                     "description": "While in the Musou Isshin state applied by Secret Art: Musou Shinsetsu, the Raiden Shogun's Normal, Charged, and Plunging Attacks will decrease all nearby party members' (but not including the Raiden Shogun herself) Elemental Burst CD by 1s when they hit opponents. This effect can trigger once every 1s, and can trigger a total of 5 times during the state's duration."
                 }
             },            
-            "artifacts": {
-                "1": {
-                    "type": "General",
-                    "flower": "HP",
-                    "plume": "ATK",
-                    "sands": "Energy Recharge / ATK%",
-                    "goblet": "Electro DMG / ATK%",
-                    "circlet": "CRIT Rate / CRIT DMG",
-                    "sets": {
-                        "1": "Emblem of Severed Fate"
-                    }
+            "builds": [
+                {
+                    "stats": ["HP", "ATK", "ER", "ATK%", "CRIT"],
+                    "sets": [
+                        {
+                            "name": "Emblem of Severed Fate",
+                            "description": "2 piece 4 piece emblem"
+                        }
+                    ],
+                    "weapons": ["Engulfing Lightning", "The Catch", "Favonius Lance"],
+                    "subs": ["CRIT Rate = Crit DMG > ATK% >= ER%"]
                 },
-                "2": {
-                    "type": "Hyperbloom",
-                    "flower": "HP",
-                    "plume": "ATK",
-                    "sands": "Elemental Mastery",
-                    "goblet": "Elemental Mastery",
-                    "circlet": "Elemental Mastery",
-                    "sets": {
-                        "1": "Flower of Paradise Lost",
-                        "2": "Gilded Dreams"
-                    }
+                {
+                    "stats": ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
+                    "sets": [
+                        {
+                            "name": "Flower of Paradise Lost",
+                            "description": "2 piece 4 piece flower"
+                        },
+                        {
+                            "name": "Gilded Dreams",
+                            "description": "2 piece 4 piece gilded"
+                        }
+                    ],
+                    "weapons": ["Dragon's Bane", "Kitain Spear"],
+                    "subs": ["Elemental Mastery"]
                 }
-            },
-            "weapons": {
-                "General": ["Engulfing Lightning", "Staff of Homa", "Primordial Jade Winged-Spear", "Staff of the Scarlet Sands", "The Catch"],
-                "Hyperbloom": ["Dragon's Bane", "Wlocznia", "Polearm"]
-            },
-            "artifact": {
-                "General": ["HP, ATK, Energy Recharge / ATK%, Electro DMG / ATK%, CRIT Rate / CRIT DMG"],
-                "Hyperbloom": ["HP, ATK, Elemental Mastery, Elemental Mastery, Elemental Mastery"]
-            },
-            "artifactSets": {
-                "General": ["Emblem of Severed Fate"],
-                "Hyperbloom": ["Flower of Paradise Lost", "Gilded Dreams"]
-            }
+            ]
                 
         },
         {
@@ -576,5 +567,11 @@
             "element": "Anemo",
             "backgroundColor": "#4ca897"
         }
-    ]   
+    ],
+    "artifactSets": [
+        {
+            "name": "Emblem of Severed Fate",
+            "description": "2-Piece\\n Bonus Energy Recharge +20%\\n 4-Piece Bonus\\n Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way."
+        }
+    ]
 } 

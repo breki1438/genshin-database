@@ -6,7 +6,7 @@ export default function CharacterStats(character: any) {
     const [ascension, setAscension] = useState('one');
     const ascensions = character.character.ascension;
     return (
-        <div id='stats' className='flex flex-col my-5 bg-poldark md:rounded-xl shadow-outer w-full max-w-3xl xl:max-w-7xl'>
+        <div className='flex flex-col my-5 bg-poldark md:rounded-xl shadow-outer w-full max-w-3xl xl:max-w-7xl'>
             <div className='text-2xl text-center m-2'>
                 Base Stats
             </div>

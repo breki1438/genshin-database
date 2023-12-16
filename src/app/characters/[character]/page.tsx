@@ -6,6 +6,7 @@ import NavBar from '@/components/NavBar';
 import CharacterSKillsBox from '@/components/CharacterSkillsBox';
 import SubPageMenu from '@/components/SubPageMenu';
 import CharacterStats from '@/components/CharacterStats';
+import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
 
 export default async function Dupa({ params }: { params: {character: string} }) {
     revalidatePath('/');
@@ -25,7 +26,7 @@ export default async function Dupa({ params }: { params: {character: string} }) 
             <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
                 <div className='backdrop-blur-xl relative'>
                     <NavBar />
-                    <div className='flex justify-center'>
+                    <div id='info' className='flex justify-center'>
                         <CharacterTopBox selectedCharacter={selectedCharacter} color={pickColor} />   
                     </div>
                     <div className='flex flex-wrap m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center xl:justify-between bg-top bg-no-repeat bg-auto md:bg-contain' style={{backgroundImage: backgroundPath}}>
@@ -36,8 +37,11 @@ export default async function Dupa({ params }: { params: {character: string} }) 
                         <CharacterSKillsBox character={selectedCharacter} color={pickColor}/>
                         <CharacterConstelations character={selectedCharacter} color={pickColor} />    
                     </div>
-                    <div className='flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <CharacterStats character={selectedCharacter}/>
+                    <div id='stats' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
+                        <CharacterStats character={selectedCharacter}/>                       
+                    </div>
+                    <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
+                        <RecommendedBuilds character={selectedCharacter} />
                     </div>
                 </div>                                                                                                   
             </div> 
