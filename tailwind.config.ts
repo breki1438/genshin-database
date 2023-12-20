@@ -33,7 +33,8 @@ const config: Config = {
       },
 
       width: {
-        '192': '48rem'
+        '192': '48rem',
+        '420': '420px'
       },
 
       minWidth: {
@@ -51,10 +52,18 @@ const config: Config = {
         'dark': '#1D1D26',
         'second': '#3B4773',
         'third': '#FFFFFF',
+        'fiveStar': 'rgba(255, 170, 0, 0.25)',
+        'fourStar': '#9500ff',
+        'lightFont': '#E8E8E8',
+        'grayFont': '#8E8E8E',
       },
 
       transitionProperty: {
         'height': 'height',
+      },
+
+      dropShadow: {
+        'text': '1px 1px 2px rgba(0, 0, 0, 0.5)',
       }
     },
   },

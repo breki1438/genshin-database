@@ -20,7 +20,7 @@ export default function CharacterStats(character: any) {
                 <button className='hover:bg-poldark p-2 hover:shadow-around' onClick={() => setAscension('eighty')}>Lv.80</button>
                 <button className='hover:bg-poldark p-2 hover:shadow-around' onClick={() => setAscension('ninety')}>Lv.90</button>  
             </div>
-            <table className='text-start my-5 shadow-around'>
+            <table className='text-start m-5 shadow-around'>
                 <tbody>
                     <tr className='bg-poldark'>
                         <td></td>

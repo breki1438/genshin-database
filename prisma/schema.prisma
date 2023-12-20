@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Character {
+  name String @id
+  stars Int
+  element String
+  weaponType String
+  region String
+  book String
+  weeklyBoss String
+  crystal String
+  bossMaterial String
+  localSpeciality String
+  enemyDrop String
+  description String
+  url String
+  weapons CharacterWeapons[]
+  artifacts CharacterArtifactStats[]
+  artifactSets CharacterArtifactSets[]
+}
+
+model Weapon {
+  name String @id
+  stars String
+  type String
+  baseATK Int
+  secondStat String
+  secondStatValue String
+  passive String
+  passiveDescription String
+  characters CharacterWeapons[]
+}
+
+model CharacterWeapons {
+  id Int @id @default(autoincrement())
+  character Character @relation(fields: [characterName], references: [name])
+  characterName String
+  weapon Weapon @relation(fields: [weaponName], references: [name])
+  weaponName String
+  build String?
+}
+
+model CharacterArtifactStats {
+  id Int @id @default(autoincrement())
+  character Character @relation(fields: [characterName], references: [name])
+  characterName String
+  flower String
+  plume String
+  sands String
+  goblet String
+  circlet String
+  subStats String
+  build String
+}
+
+model Artifacts {
+  name String @id
+  twoPiece String
+  fourPiece String
+  characters CharacterArtifactSets[]
+}
+
+model CharacterArtifactSets {
+  id Int @id @default(autoincrement())
+  character Character @relation(fields: [characterName], references: [name])
+  characterName String
+  artifact Artifacts @relation(fields: [artifactName], references: [name])
+  artifactName String
+  build String
+}

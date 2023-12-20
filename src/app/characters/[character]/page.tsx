@@ -7,6 +7,9 @@ import CharacterSKillsBox from '@/components/CharacterSkillsBox';
 import SubPageMenu from '@/components/SubPageMenu';
 import CharacterStats from '@/components/CharacterStats';
 import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
+import WeaponBox from '@/components/weapons/WeaponBox';
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
 export default async function Dupa({ params }: { params: {character: string} }) {
     revalidatePath('/');
@@ -22,6 +25,35 @@ export default async function Dupa({ params }: { params: {character: string} }) 
         backgroundImage: `url(${obrazek})`
     };
 
+    const weapons1 = await prisma.characterWeapons.findMany({
+        where: { characterName: selectedCharacter.name }
+    })
+    let broniewszystkie: string[] = []
+    weapons1.forEach(  (item) => {
+        broniewszystkie.push(item.weaponName)
+    } )
+    const bronie = await prisma.weapon.findMany({
+        where: { name: {
+            in: broniewszystkie
+        } }
+    })
+
+    const artifactSets = await prisma.characterArtifactSets.findMany({
+        where: { characterName: selectedCharacter.name }
+    })
+    let allArtifacts: string[] = []
+    artifactSets.forEach((item) => {
+        allArtifacts.push(item.artifactName)
+    })
+    const artifacts = await prisma.artifacts.findMany({
+        where: { name: {
+            in: allArtifacts
+        } }
+    })
+    //console.log(artifacts)
+
+    const artifactStats = await prisma.characterArtifactStats.findMany()
+    //console.log(artifactStats)
     return (         
             <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
                 <div className='backdrop-blur-xl relative'>
@@ -41,7 +73,10 @@ export default async function Dupa({ params }: { params: {character: string} }) 
                         <CharacterStats character={selectedCharacter}/>                       
                     </div>
                     <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <RecommendedBuilds character={selectedCharacter} />
+                        <RecommendedBuilds weapons={ bronie } characterWeapons={ weapons1 } artifactStats={ artifactStats } characterArtifacts={ artifactSets } artifacts={ artifacts }/>
+                    </div>
+                    <div className='w-full h-3000 bg-poldark'>
+                        d
                     </div>
                 </div>                                                                                                   
             </div> 

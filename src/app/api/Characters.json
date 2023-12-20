@@ -288,28 +288,14 @@
             },            
             "builds": [
                 {
-                    "stats": ["HP", "ATK", "ER", "ATK%", "CRIT"],
-                    "sets": [
-                        {
-                            "name": "Emblem of Severed Fate",
-                            "description": "2 piece 4 piece emblem"
-                        }
-                    ],
-                    "weapons": ["Engulfing Lightning", "The Catch", "Favonius Lance"],
+                    "stats": ["HP", "ATK", "Energy Recharge / ATK%", "Electro DMG / ATK%", "CRIT Rate / CRIT DMG"],
+                    "sets": ["Emblem of Severed Fate"],
+                    "weapons": ["Engulfing Lightning", "\"The Catch\""],
                     "subs": ["CRIT Rate = Crit DMG > ATK% >= ER%"]
                 },
                 {
                     "stats": ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
-                    "sets": [
-                        {
-                            "name": "Flower of Paradise Lost",
-                            "description": "2 piece 4 piece flower"
-                        },
-                        {
-                            "name": "Gilded Dreams",
-                            "description": "2 piece 4 piece gilded"
-                        }
-                    ],
+                    "sets": ["Flower of Paradise Lost", "Gilded Dreams"],
                     "weapons": ["Dragon's Bane", "Kitain Spear"],
                     "subs": ["Elemental Mastery"]
                 }
@@ -568,10 +554,48 @@
             "backgroundColor": "#4ca897"
         }
     ],
-    "artifactSets": [
-        {
-            "name": "Emblem of Severed Fate",
-            "description": "2-Piece\\n Bonus Energy Recharge +20%\\n 4-Piece Bonus\\n Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way."
+    "artifactSets": {
+        "Emblem of Severed Fate": {
+            "twoPiece": "Bonus Energy Recharge +20%.",
+            "fourPiece": "Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way."
+        },
+        "Gilded Dreams": {
+            "twoPiece": "Increases Elemental Mastery by 80.",
+            "fourPiece": "Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field."
+        },
+        "Flower of Paradise Lost": {
+            "twoPiece": "Increases Elemental Mastery by 80.",
+            "fourPiece": "The equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%. Additionally, after the equipping character triggers Bloom, Hyperbloom, or Burgeon, they will gain another 25% bonus to the effect mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field."
         }
-    ]
+    },
+    "weapons": {
+        "Engulfing Lightning": {
+            "baseATK": 608,
+            "secondStatType": "Energy Recharge",
+            "secondStatValue": "12% - 55.1%",
+            "passiveName": "Timeless Dream: Eternal Stove",
+            "passiveDescription": "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst."
+        },
+        "\"The Catch\"": {
+            "baseATK": 510,
+            "secondStatType": "Energy Recharge",
+            "secondStatValue": "10.0% - 45.9%",
+            "passiveName": "Shanty",
+            "passiveDescription": "Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%."
+        },
+        "Dragon's Bane": {
+            "baseATK": 608,
+            "secondStatType": "Energy Recharge",
+            "secondStatValue": "12% - 55.1%",
+            "passiveName": "Timeless Dream: Eternal Stove",
+            "passiveDescription": "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst."
+        },
+        "Kitain Spear": {
+            "baseATK": 608,
+            "secondStatType": "Energy Recharge",
+            "secondStatValue": "12% - 55.1%",
+            "passiveName": "Timeless Dream: Eternal Stove",
+            "passiveDescription": "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst."
+        }
+    }
 } 
