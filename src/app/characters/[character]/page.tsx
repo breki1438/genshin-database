@@ -13,7 +13,7 @@ const prisma = new PrismaClient()
 
 export default async function Dupa({ params }: { params: {character: string} }) {
     revalidatePath('/');
-    const jebanko = await fetch(`https://genshin-database-ten.vercel.app/api/characters`);
+    const jebanko = await fetch(`genshin-database-breki1438s-projects.vercel.app/api/characters`);
     //const jebanko = await fetch('http://localhost:3000/api/characters');
     const sraki = await jebanko.json();
     const postac = params.character;
