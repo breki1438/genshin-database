@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "https://github.com/breki1438/genshin-database/blob/main/prisma/dev.db"
+  url      = "file:https://github.com/breki1438/genshin-database/blob/main/prisma/dev.db"
 }
 
 model Character {
