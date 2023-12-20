@@ -4,8 +4,8 @@ import CharacterSelectIcon from '@/components/CharacterSelectIcon';
 
 export default async function jebaneGowno() {
     revalidatePath('/');
-    const jebanko = await fetch('genshin-database-ten.vercel.app/api/characters');
-    //const jebanko = await fetch('http://localhost:3000/api/characters');
+    //const jebanko = await fetch('https://genshin-database-ten.vercel.app/api/characters');
+    const jebanko = await fetch('http://localhost:3000/api/characters');
     const sraki = await jebanko.json();
     //console.log(sraki);
     return (
