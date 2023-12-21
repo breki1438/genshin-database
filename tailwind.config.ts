@@ -56,6 +56,7 @@ const config: Config = {
         'fourStar': '#9500ff',
         'lightFont': '#E8E8E8',
         'grayFont': '#8E8E8E',
+        'electro': '#7858A6'
       },
 
       transitionProperty: {

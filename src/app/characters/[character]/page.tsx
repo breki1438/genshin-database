@@ -7,23 +7,27 @@ import CharacterSKillsBox from '@/components/CharacterSkillsBox';
 import SubPageMenu from '@/components/SubPageMenu';
 import CharacterStats from '@/components/CharacterStats';
 import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
-import WeaponBox from '@/components/weapons/WeaponBox';
 import { PrismaClient } from '@prisma/client'
+
 const prisma = new PrismaClient()
 
-export default async function Dupa({ params }: { params: {character: string} }) {
+export default async function Page({ params }: { params: { character: string }}) {
     revalidatePath('/');
     const jebanko = await fetch(`https://genshin-database-ten.vercel.app/api/characters`);
     //const jebanko = await fetch('http://localhost:3000/api/characters');
     const sraki = await jebanko.json();
     const postac = params.character;
     const selectedCharacter = sraki.characters.find((character: any) => character.url === postac);
-    const backgroundPath = `url('/images/${selectedCharacter.url}/${selectedCharacter.url}_wish.webp')`;
     const pickColor = sraki.colorPalette.find((color: any) => color.element === selectedCharacter.element);
     const obrazek = `/images/${selectedCharacter.url}/${selectedCharacter.url}_background.png`;
     const obrazek2 = {
         backgroundImage: `url(${obrazek})`
     };
+    await prisma.$connect()
+    const characterInfo = await prisma.character.findFirst({
+        where: { url: params.character }
+    })
+    console.log(characterInfo?.weaponType)
 
     const weapons1 = await prisma.characterWeapons.findMany({
         where: { characterName: selectedCharacter.name }
@@ -50,18 +54,17 @@ export default async function Dupa({ params }: { params: {character: string} }) 
             in: allArtifacts
         } }
     })
-    //console.log(artifacts)
+    const artifactStats = await prisma.characterArtifactStats.findMany();
+    await prisma.$disconnect()
 
-    const artifactStats = await prisma.characterArtifactStats.findMany()
-    //console.log(artifactStats)
     return (         
             <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
-                <div className='backdrop-blur-xl relative'>
+                <div className='backdrop-blur-xl bg-no-repeat bg-top' style={{backgroundImage: `url('/images/${characterInfo?.url}/${characterInfo?.url}_wish.webp')`}}>
                     <NavBar />
                     <div id='info' className='flex justify-center'>
-                        <CharacterTopBox selectedCharacter={selectedCharacter} color={pickColor} />   
+                        <CharacterTopBox selectedCharacter={characterInfo} />   
                     </div>
-                    <div className='flex flex-wrap m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center xl:justify-between bg-top bg-no-repeat bg-auto md:bg-contain' style={{backgroundImage: backgroundPath}}>
+                    <div className='flex flex-wrap m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>
                         <SubPageMenu />
                         <CharacterInfoBox character={selectedCharacter} />
                     </div>
