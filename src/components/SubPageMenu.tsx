@@ -16,7 +16,7 @@ export default function SubPageMenu() {
         }
     }
     return (
-            <div className='mt-1024 md:mt-5 flex flex-col bg-poldark rounded-xl shadow-outer w-96 md:w-48 h-fit text-xl my-5 md:mr-auto m-0'>
+            <div className='mt-720 md:mt-5 flex flex-col bg-poldark rounded-xl shadow-outer w-96 md:w-48 h-fit text-xl my-5 md:mr-auto m-0'>
                 <div className='m-3 flex justify-center text-2xl'>
                     Menu
                 </div>

@@ -3,13 +3,11 @@ import CharacterInfoBox from '@/components/CharacterInfoBox';
 import CharacterTopBox from '@/components/CharacterTopBox';
 import CharacterConstelations from '@/components/CharacterConstelations';
 import NavBar from '@/components/NavBar';
-import CharacterSKillsBox from '@/components/CharacterSkillsBox';
+import CharacterSkillsBox from '@/components/CharacterSkillsBox';
 import SubPageMenu from '@/components/SubPageMenu';
 import CharacterStats from '@/components/CharacterStats';
 import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
 import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
 
 export default async function Page({ params }: { params: { character: string }}) {
     revalidatePath('/');
@@ -23,12 +21,11 @@ export default async function Page({ params }: { params: { character: string }})
     const obrazek2 = {
         backgroundImage: `url(${obrazek})`
     };
-    await prisma.$connect()
+    const prisma = new PrismaClient()
+
     const characterInfo = await prisma.character.findFirst({
         where: { url: params.character }
     })
-    console.log(characterInfo?.weaponType)
-
     const weapons1 = await prisma.characterWeapons.findMany({
         where: { characterName: selectedCharacter.name }
     })
@@ -59,17 +56,17 @@ export default async function Page({ params }: { params: { character: string }})
 
     return (         
             <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
-                <div className='backdrop-blur-xl bg-no-repeat bg-top' style={{backgroundImage: `url('/images/${characterInfo?.url}/${characterInfo?.url}_wish.webp')`}}>
+                <div className='backdrop-blur-xl bg-no-repeat bg-top-100' style={{backgroundImage: `url('/images/${characterInfo?.url}/${characterInfo?.url}_wish.webp')`}}>
                     <NavBar />
                     <div id='info' className='flex justify-center'>
                         <CharacterTopBox selectedCharacter={characterInfo} />   
                     </div>
                     <div className='flex flex-wrap m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>
                         <SubPageMenu />
-                        <CharacterInfoBox character={selectedCharacter} />
+                        <CharacterInfoBox character={characterInfo} />
                     </div>
-                    <div className='flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>
-                        <CharacterSKillsBox character={selectedCharacter} color={pickColor}/>
+                    <div className='md:mt-44 xl:mt-50 flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>
+                        <CharacterSkillsBox character={selectedCharacter} color={pickColor}/>
                         <CharacterConstelations character={selectedCharacter} color={pickColor} />    
                     </div>
                     <div id='stats' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>

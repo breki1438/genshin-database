@@ -14,7 +14,8 @@ const config: Config = {
 
       margin: {
         '88': '22rem',
-        '1024': '1024px'
+        '1024': '1024px',
+        '720': '720px'
       },
 
       backgroundPosition: {

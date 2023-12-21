@@ -1,7 +1,7 @@
 import PassiveElement from "./passives/PassiveElement";
 import TalentElement from "./talents/TalentElement";
 
-export default function CharacterSKillsBox({character, color}: {character: any, color: any}) {
+export default function CharacterSkillsBox({character, color}: {character: any, color: any}) {
     return (
         <div className='w-192 bg-poldark my-5 md:rounded-xl shadow-outer text-2xl h-fit'>
             <div className='flex flex-col p-2 overflow-hidden opacity-95'>

@@ -19,7 +19,7 @@ export default function RecommendedBuilds({ weapons, characterWeapons, artifactS
                     )
                 })}
             </div>
-            <div className='flex sm:flex-col xl:flex-row sm:justify-center items-center xl:items-start xl:justify-between'>
+            <div className='flex flex-col xl:flex-row sm:justify-center items-center xl:items-start xl:justify-between'>
                 <ArtifactStats artifactStats={ artifactStats } build={ selectedBuild }/>
                 <ArtifactSets characterArtifacts={ characterArtifacts } artifacts={ artifacts } build={ selectedBuild }/>
                 <WeaponBox weapons={ weapons } characterWeapons={ characterWeapons } build={ selectedBuild }/>
