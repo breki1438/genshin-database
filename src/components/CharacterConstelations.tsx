@@ -13,7 +13,7 @@ export default function CharacterConstelations({ character, color }: {character:
     //console.log(constellations[0]);
 
     return (
-        <div className='bg-poldark w-96 my-5 rounded-xl shadow-around text-2xl h-fit'>
+        <div className='bg-poldark w-96 rounded-xl shadow-around text-2xl h-fit'>
             <div className='flex flex-col p-2 overflow-hidden opacity-95'>
                 <div className='text-2xl text-center'>
                     Constellations

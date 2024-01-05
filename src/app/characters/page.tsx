@@ -1,20 +1,17 @@
 import NavBar from '@/components/NavBar';
-import CharacterSelectIcon from '@/components/CharacterSelectIcon';
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import CharacterSelectFilter from '@/components/CharacterSelectFilter';
 
 export default async function Page() {
-    const characters = await prisma.character.findMany();
-    console.log(characters)
-
+    //const jebanko = await fetch('http://localhost:3000/api/test');
+    const jebanko = await fetch('http://https://genshin-database-ten.vercel.app/api/test');
+    const characters = await jebanko.json();
+    
     return (
-        <div className='flex flex-col bg-darker'>
-            <NavBar />
-            <div className='flex justify-center m-auto mt-5'>
-                <CharacterSelectIcon characters={ characters }/>      
+        <div className='bg-[url("/images/fur.jpg")] bg-cover'>
+            <div className='h-screen bg-darker bg-opacity-95'>
+                <NavBar />
+                <CharacterSelectFilter characters={ characters } />                
             </div>
-                 
         </div>
-    );
-  }
+    );      
+}

@@ -1,17 +1,10 @@
-import { NextResponse } from "next/server";
-import { Database } from "sqlite3";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { PrismaClient } from '@prisma/client';
+import { NextResponse } from 'next/server';
 
-export async function GET(req: Request, res: Response) {
-    const db = new Database('./dupa.db');
-    const characters = await new Promise((resolve, reject) => {
-        db.all('SELECT * FROM Characters', (err, row) => {
-            if (err) reject(err);
-            else resolve(row);
-        });
-    });
+const prisma = new PrismaClient();
 
-    db.close();
-    console.log(characters)
-
-    return NextResponse.json(characters)
+export async function GET(req: Request) {
+    const characters = await prisma.character.findMany();
+    return NextResponse.json(characters);
 }

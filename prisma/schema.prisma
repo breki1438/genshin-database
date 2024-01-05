@@ -27,6 +27,8 @@ model Character {
   weapons CharacterWeapons[]
   artifacts CharacterArtifactStats[]
   artifactSets CharacterArtifactSets[]
+  talents CharacterTalents[]
+  constellations CharacterConstellations[]
 }
 
 model Weapon {
@@ -77,4 +79,21 @@ model CharacterArtifactSets {
   artifact Artifacts @relation(fields: [artifactName], references: [name])
   artifactName String
   build String
+}
+
+model CharacterTalents {
+  id Int @id @default(autoincrement())
+  character Character @relation(fields: [characterName], references: [name])
+  characterName String
+  talentType String
+  talentName String
+  talentDesciprtion String
+}
+
+model CharacterConstellations {
+  id Int @id @default(autoincrement())
+  character Character @relation(fields: [characterName], references: [name])
+  characterName String
+  constellationName String
+  constellationDescription String
 }
