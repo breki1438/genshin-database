@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { character: string }})
     //const data = await fetch(`http://localhost:3000/api/characters?character=${postac}`);
     const data = await fetch(`https://genshin-database-ten.vercel.app/api/characters?character=${postac}`);
     const characterData = await data.json();  
-    const obrazek = `/images/${characterData.character.name.replaceAll(' ', '')}/${characterData.character.name.replaceAll(' ', '')}_background.png`;
+    const obrazek = `/images/${characterData.character.name.toLowerCase().replaceAll(' ', '')}/${characterData.character.name.toLowerCase().replaceAll(' ', '')}_background.png`;
     const obrazek2 = {
         backgroundImage: `url(${obrazek})`
     };
