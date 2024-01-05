@@ -3,7 +3,7 @@ import CharacterSelectFilter from '@/components/CharacterSelectFilter';
 
 export default async function Page() {
     //const jebanko = await fetch('http://localhost:3000/api/test');
-    const jebanko = await fetch('http://https://genshin-database-ten.vercel.app/api/test');
+    const jebanko = await fetch('https://genshin-database-ten.vercel.app/api/test');
     const characters = await jebanko.json();
     
     return (

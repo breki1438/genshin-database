@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { character: string }})
     revalidatePath('/');
     const postac = params.character;
     //const data = await fetch(`http://localhost:3000/api/characters?character=${postac}`);
-    const data = await fetch(`http://https://genshin-database-ten.vercel.app/api/characters?character=${postac}`);
+    const data = await fetch(`https://genshin-database-ten.vercel.app/api/characters?character=${postac}`);
     const characterData = await data.json();  
     const obrazek = `/images/${characterData.character.name.replaceAll(' ', '')}/${characterData.character.name.replaceAll(' ', '')}_background.png`;
     const obrazek2 = {
