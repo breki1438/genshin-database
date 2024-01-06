@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     }
 
     const selectedCharacter = req.nextUrl.searchParams.get('character')!;
-    console.log(selectedCharacter)
+    //console.log(selectedCharacter)
 
     if (!selectedCharacter) {
         return NextResponse.json({ error: 'Did not provide character name'})
@@ -61,7 +61,9 @@ export async function GET(req: NextRequest) {
                     in: allArtifacts
                 } }
             })
-            const artifactStats = await prisma.characterArtifactStats.findMany();
+            const artifactStats = await prisma.characterArtifactStats.findMany({
+                where: { characterName: character.name }
+            });
         
             const characterTalents = await prisma.characterTalents.findMany({
                 where: { characterName: character.name }

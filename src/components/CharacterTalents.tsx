@@ -1,13 +1,15 @@
 'use client'
 
-export default function CharacterTalents({ talents }: { talents: any }) {
-    const sortedTalents = talents.slice().sort((a: any, b: any) => a.id -b.id)
+export default function CharacterTalents({ characterData }: { characterData: any }) {
+    const sortedTalents = characterData.characterTalents.slice().sort((a: any, b: any) => a.id -b.id)
     return (
         <div className='bg-poldark rounded-xl shadow-outer max-w-3xl w-full h-fit'>
             <p className='text-4xl font-bold drop-shadow-text text-center m-2'>Talents</p>
             {sortedTalents.map((talent: any) => {
                 let talentElement = talent.talentDesciprtion.replaceAll('\\n', '<br />');
-                console.log(talent.talentName)
+                const element = characterData.character.element
+                talentElement = talentElement.replaceAll(`${element}`, `<span class=${element}>${element}</span>`);
+                //console.log(talent.talentName)
                 const expandElement = () => {
                     document.getElementById(`${talent.talentType}IdLower`)?.classList.toggle('hidden');
                 }

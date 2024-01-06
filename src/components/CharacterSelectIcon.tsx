@@ -8,9 +8,9 @@ export default function CharacterSelectIcon({ characters, selectedElement, selec
 
     return (
             <div className='flex flex-wrap max-w-7xl justify-start bg-dark w-full rounded-xl shadow-outer'>
-                { characters.map((character) => {
+                { characters.map((character, index) => {
                     return (
-                        isCharacterVisible(character) && <div key={ character } id={ character.element } className='flex flex-col w-36 h-fit m-4 items-center'>
+                        isCharacterVisible(character) && <div key={ index } id={ character.element } className='flex flex-col w-36 h-fit m-4 items-center'>
                             <a href={`/characters/${character.url}`} className='flex rounded-full h-fit w-36 bg-neutral-300 shadow-outer'>
                                 <img src={`/images/${character.url}/${character.url}.webp`} className='rounded-full'/>
                             </a>

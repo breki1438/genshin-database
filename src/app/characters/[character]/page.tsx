@@ -11,8 +11,9 @@ export default async function Page({ params }: { params: { character: string }})
     revalidatePath('/');
     const postac = params.character;
     //const data = await fetch(`http://localhost:3000/api/characters?character=${postac}`);
-    const data = await fetch(`https://genshin-database-ten.vercel.app/api/characters?character=${postac}`);
-    const characterData = await data.json();  
+    const data = await fetch(`https://genshin-database-current.vercel.app/api/characters?character=${postac}`);
+    const characterData = await data.json();
+    //console.log(characterData)
     const obrazek = `/images/${characterData.character.name.toLowerCase().replaceAll(' ', '')}/${characterData.character.name.toLowerCase().replaceAll(' ', '')}_background.png`;
     const obrazek2 = {
         backgroundImage: `url(${obrazek})`
@@ -30,11 +31,11 @@ export default async function Page({ params }: { params: { character: string }})
                         <CharacterInfoBox character={ characterData.character } />
                     </div>
                     <div className='md:mt-44 xl:mt-50 flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center xl:justify-between items-start'>
-                        <CharacterTalents talents={ characterData.characterTalents } />
+                        <CharacterTalents characterData={ characterData } />
                         <CharacterConstellations constellations={ characterData.characterConstellations } />    
                     </div>
                     <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <RecommendedBuilds weapons={ characterData.weapons } characterWeapons={ characterData.characterWeapons } artifactStats={ characterData.artifactStats } characterArtifacts={ characterData.artifactSets } artifacts={ characterData.artifacts }/>
+                        <RecommendedBuilds weapons={ characterData.weapons } characterWeapons={ characterData.characterWeapons } artifactStats={ characterData.artifactStats } characterArtifacts={ characterData.artifactSets } artifacts={ characterData.artifacts } characterData={ characterData }/>
                     </div>
                 </div>                                                                                                   
             </div> 

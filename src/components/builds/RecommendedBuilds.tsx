@@ -5,9 +5,12 @@ import WeaponBox from "../weapons/WeaponBox";
 import ArtifactStats from "../artifacts/ArtifactStats";
 import ArtifactSets from "../artifacts/ArtifactSets";
 
-export default function RecommendedBuilds({ weapons, characterWeapons, artifactStats, characterArtifacts, artifacts }: { weapons: Array<any>, characterWeapons: Array<any>, artifactStats: Array<any>, characterArtifacts: Array<any>, artifacts: Array<any> }) {
+export default function RecommendedBuilds({ weapons, characterWeapons, artifactStats, characterArtifacts, artifacts, characterData }: { weapons: Array<any>, characterWeapons: Array<any>, artifactStats: Array<any>, characterArtifacts: Array<any>, artifacts: Array<any>, characterData: Object }) {
     const builds = characterWeapons.map(build => build.build)
     .filter((value, index, self) => self.indexOf(value) === index);
+
+    const ech = artifactStats.filter(stat => stat.characterName == 'Yoimiya');
+    //console.log(characterData)
     const [selectedBuild, setBuild] = useState(builds[0])
     return (
         <div className='bg-poldark md:rounded-xl shadow-outer flex flex-col max-w-3xl xl:max-w-7xl w-full my-2'>

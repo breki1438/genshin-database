@@ -27,8 +27,32 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.electro {
-  color: #7858A6;
+.Electro {
+  color: #af8ec1;
+}
+
+.Pyro {
+  color: #ef7938;
+}
+
+.Dendro {
+  color: #a5c83b;
+}
+
+.Cryo {
+  color: #9fd6e3;
+}
+
+.Anemo {
+  color: #74c2a8;
+}
+
+.Hydro {
+  color: #4cc2f1;
+}
+
+.Geo {
+  color: #fab632;
 }
 
 .stars-5 {

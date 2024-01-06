@@ -2,9 +2,8 @@ import NavBar from '@/components/NavBar';
 import CharacterSelectFilter from '@/components/CharacterSelectFilter';
 
 export default async function Page() {
-    //const jebanko = await fetch('http://localhost:3000/api/test');
-    const jebanko = await fetch('https://genshin-database-ten.vercel.app/api/test');
-    const characters = await jebanko.json();
+    const characters = await getCharacters();
+    console.log(characters);
     
     return (
         <div className='bg-[url("/images/fur.jpg")] bg-cover'>
@@ -14,4 +13,14 @@ export default async function Page() {
             </div>
         </div>
     );      
+}
+
+async function getCharacters() {
+    //const res = await fetch('http://localhost:3000/api/test');
+    const res = await fetch('https://genshin-database-current.vercel.app/api/test');
+    if(!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json()
 }

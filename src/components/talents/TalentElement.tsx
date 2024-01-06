@@ -1,10 +1,7 @@
 'use client'
 
 export default function TalentElement({character, talent}: {character: any, talent: any}) {
-    const element = 'Electro';
-    const style = `styles.${element}`;
-    let talentElement = character.talents[talent].description.replaceAll('\\n', '<br />');
-    talentElement = talentElement.replaceAll(`${element}`, `<span class=${element}>${element}</span>`);
+    let talentElement = character.talents[talent].description;
     const talentImage = `/images/${character.url}/talents/${talent}.png`;
     const talentID = `${talent}Info`;
     const talentArrow = `${talent}Arrow`;
