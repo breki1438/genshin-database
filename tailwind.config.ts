@@ -35,7 +35,9 @@ const config: Config = {
 
       width: {
         '192': '48rem',
-        '420': '420px'
+        '420': '420px',
+        '336': '336px',
+        '1/8': '12.5%'
       },
 
       minWidth: {
@@ -45,6 +47,8 @@ const config: Config = {
       height: {
         '3000': '3000px',
         'inherit': 'inherit',
+        '192': '720px',
+        '432': '432px'
       },
 
       colors: {

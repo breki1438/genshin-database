@@ -6,18 +6,21 @@ export default async function Page() {
     console.log(characters);
     
     return (
-        <div className='bg-[url("/images/fur.jpg")] bg-cover'>
+        <div className='bg-neutral-500 h-screen'>
             <div className='h-screen bg-darker bg-opacity-95'>
                 <NavBar />
-                <CharacterSelectFilter characters={ characters } />                
+                <CharacterSelectFilter characters={ characters } />             
             </div>
         </div>
     );      
 }
 
 async function getCharacters() {
-    //const res = await fetch('http://localhost:3000/api/test');
-    const res = await fetch('https://genshin-database-current.vercel.app/api/test');
+    const isServer = typeof window === 'undefined';
+    const baseUrl = isServer
+        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        : '';
+    const res = await fetch(`${baseUrl}/api/test`);
     if(!res.ok) {
         throw new Error('Failed to fetch data')
     }

@@ -13,7 +13,7 @@ export default function SearchBar({ characters, onFilterChange }: { characters: 
   }
 
   return (
-    <div className='m-4 flex justify-center'>
+    <div className='m-4 flex justify-center w-full col-start-2 col-span-3'>
       <input type='text' placeholder='Search character...' onChange={handleInputChange} value={searchItem} className='bg-dark rounded-xl p-3 enabled:border-0 outline-none max-w-xl w-full shadow-outer' />
     </div>
   );

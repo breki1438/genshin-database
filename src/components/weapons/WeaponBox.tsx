@@ -35,7 +35,7 @@ export default function WeaponBox({ weapons, characterWeapons, build }: { weapon
                                 <p className='drop-shadow-text p-3 pb-0'>{ weapon.name }</p>
                                 <div className='flex justify-between px-3'>
                                     <div className='flex flex-col text-base justify-between'>
-                                        <p className='drop-shadow-text'>Polearm</p>
+                                        <p className='drop-shadow-text'>{ weapon.type }</p>
                                         <div>
                                             <p className='text-grayFont drop-shadow-text leading-4'>{ weapon.secondStat }</p>
                                             <p className='drop-shadow-text'>{ weapon.secondStatValue }</p>

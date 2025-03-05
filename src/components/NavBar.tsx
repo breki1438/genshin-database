@@ -9,7 +9,7 @@ export default function NavBar() {
                 <a className="flex bg-darker hover:bg-second w-24 mx-2 p-1 rounded-xl justify-center shadow-around" href="/characters">
                         Characters
                     </a>
-                    <a className="flex bg-darker hover:bg-second w-24 mx-2 p-1 rounded-xl justify-center shadow-around" href="/weapons">
+                    <a className="flex bg-darker hover:bg-second w-24 mx-2 p-1 rounded-xl justify-center shadow-around" href="">
                         Weapons
                     </a>
                     <a className="flex bg-darker hover:bg-second w-24 mx-2 p-1 rounded-xl justify-center shadow-around" href="">

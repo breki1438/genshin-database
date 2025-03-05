@@ -2,6 +2,15 @@ export default function ArtifactStats({ artifactStats, build }: { artifactStats:
     const selectBuild = build;
     const filteredArtifactStats = artifactStats
     .filter(build => build.build === selectBuild)
+    if(build == undefined || artifactStats == undefined)
+        {
+            return(
+                <div className='bg-poldark rounded-xl shadow-around flex flex-col text-2xl text-center p-2 m-5 w-96 xl:w-80 mx-auto md:mx-5'>
+                    <p className='text-3xl font-bold drop-shadow-text'>TBD</p>
+                </div>
+            )
+        }
+    else
     return (
         <div className='bg-poldark rounded-xl shadow-around flex flex-col text-2xl text-center p-2 m-5 w-96 xl:w-80 mx-auto md:mx-5'>
             <p className='text-3xl font-bold drop-shadow-text'>Artifact Stats</p>

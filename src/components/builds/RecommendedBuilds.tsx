@@ -13,7 +13,7 @@ export default function RecommendedBuilds({ weapons, characterWeapons, artifactS
     //console.log(characterData)
     const [selectedBuild, setBuild] = useState(builds[0])
     return (
-        <div className='bg-poldark md:rounded-xl shadow-outer flex flex-col max-w-3xl xl:max-w-7xl w-full my-2'>
+        <div className='bg-poldark md:rounded-xl shadow-outer flex flex-col max-w-3xl xl:max-w-7xl w-fit my-2'>
             <p className='text-center text-4xl font-bold drop-shadow-text p-2'>Builds</p>
             <div className='bg-poldark shadow-around flex justify-evenly h-14 text-3xl'>
                 {builds.map((build) => {
