@@ -2,7 +2,7 @@ export default function CharacterTopBox({ selectedCharacter }: { selectedCharact
     const description = selectedCharacter.description.split('\n');
     let element = selectedCharacter.element;
     element = element.replace(element, `<span class='${element}'>${element}</span>`)
-    console.log(element)
+    //console.log(element)
     return (
         <div className='bg-poldark w-full max-w-3xl xl:max-w-7xl my-5 p-3 md:rounded-xl flex flex-row shadow-outer bg-cover'>
             <img className='rounded-full h-32 bg-neutral-300 shadow-around w-32' src={`/images/${selectedCharacter.url}/${selectedCharacter.url}.webp`}/>

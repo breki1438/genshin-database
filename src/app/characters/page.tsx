@@ -3,7 +3,7 @@ import CharacterSelectFilter from '@/components/CharacterSelectFilter';
 
 export default async function Page() {
     const characters = await getCharacters();
-    console.log(characters);
+    //console.log(characters);
     
     return (
         <div className='bg-neutral-500 h-screen'>

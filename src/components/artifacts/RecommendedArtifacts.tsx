@@ -13,7 +13,7 @@ export default function RecommendedArtifacts({ character }: { character: any }) 
     for (const key in artifactSets) {
         dupa.push(`/images/artifacticons/artifactsets/${artifactSets[key].replaceAll(' ', '_')}.webp`)
     }
-    console.log(artifactSets);
+    //console.log(artifactSets);
     return (
         <div className='bg-poldark rounded-xl md:mt-0 my-5 shadow-outer text-2xl w-96 md:w-80 h-fit'>
             <div className='flex flex-col opacity-95'>

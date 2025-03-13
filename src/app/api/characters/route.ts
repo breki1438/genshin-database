@@ -25,7 +25,6 @@ export async function GET(req: NextRequest) {
     }
 
     const selectedCharacter = req.nextUrl.searchParams.get('character')!;
-    //console.log(selectedCharacter)
 
     if (!selectedCharacter) {
         return NextResponse.json({ error: 'Did not provide character name'})

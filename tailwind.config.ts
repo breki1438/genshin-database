@@ -1,3 +1,4 @@
+import { Lato } from 'next/font/google'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -53,15 +54,18 @@ const config: Config = {
 
       colors: {
         'poldark': 'rgba(47, 42, 54, 0.75)',
+        'poldark15': 'rgba(47, 42, 54, 0.15)',
         'darker': '#222222',
         'dark': '#1D1D26',
+        'dark75': 'rgba(28, 26, 31, 0.75)',
         'second': '#3B4773',
         'third': '#FFFFFF',
         'fiveStar': 'rgba(255, 170, 0, 0.25)',
         'fourStar': '#9500ff',
         'lightFont': '#E8E8E8',
         'grayFont': '#8E8E8E',
-        'electro': '#7858A6'
+        'electro': '#7858A6',
+        'yellow': '#fab632'
       },
 
       transitionProperty: {

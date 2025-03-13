@@ -6,7 +6,7 @@ export default function CharacterSelectIcon({ characters, selectedElement, selec
             (!selectedStars || character.stars === selectedStars)
         )
     };
-    console.log(selectedStars, characters[0].stars)
+    //console.log(selectedStars, characters[0].stars)
 
     return (
             <div className='flex xl:max-w-7xl justify-center bg-dark w-full xl:rounded-xl shadow-outer'>

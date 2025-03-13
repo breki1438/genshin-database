@@ -14,5 +14,5 @@ export async function GET(req: Request) {
     })
     await prisma.$disconnect()
 
-    return Response.json(characters);
+    return NextResponse.json(characters);
 }

@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function WeaponsRecommended(character: any) {
     const [type, setType] = useState('General');
     const weapons = character.character.weapons; 
-    console.log(weapons[type]);
+    //console.log(weapons[type]);
 
     return (
         <div>
