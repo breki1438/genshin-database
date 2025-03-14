@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { character: string }})
 async function getCharacter(postac: string) {
     const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000' || `https://${process.env.VERCEL_URL}`
         : '';
     const res = await fetch(`${baseUrl}/api/characters?character=${postac}`);
     if(!res.ok) {
@@ -71,7 +71,7 @@ async function getCharacter(postac: string) {
 async function getCharacterTalents(postac: string) {
   const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000' || `https://${process.env.VERCEL_URL}`
         : '';
     const res = await fetch(`${baseUrl}/api/characters/talents?character=${postac}`);
     if(!res.ok) {
@@ -84,7 +84,7 @@ async function getCharacterTalents(postac: string) {
 async function getCharacterPasives(postac: string) {
   const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000' || `https://${process.env.VERCEL_URL}`
         : '';
     const res = await fetch(`${baseUrl}/api/characters/passives?character=${postac}`);
     if(!res.ok) {
