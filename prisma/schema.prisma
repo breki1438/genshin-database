@@ -11,129 +11,139 @@ datasource db {
 }
 
 model Character {
-  name String @id
-  stars Int
-  element String
-  weaponType String
-  region String
-  book String
-  weeklyBoss String
-  crystal String
-  bossMaterial String
+  name            String                    @id
+  stars           Int
+  element         String
+  weaponType      String
+  region          String
+  book            String
+  weeklyBoss      String
+  crystal         String
+  bossMaterial    String
   localSpeciality String
-  enemyDrop String
-  description String
-  url String
-  weapons CharacterWeapons[]
-  artifacts CharacterArtifactStats[]
-  artifactSets CharacterArtifactSets[]
-  talents CharacterTalents[]
-  constellations CharacterConstellations[]
+  enemyDrop       String
+  description     String
+  url             String
+  weapons         CharacterWeapons[]
+  artifacts       CharacterArtifactStats[]
+  artifactSets    CharacterArtifactSets[]
+  talents         CharacterTalents[]
+  constellations  CharacterConstellations[]
+  passives        Passives[]
 }
 
 model Weapon {
-  name String @id
-  stars String
-  type String
-  baseATK Int
-  secondStat String
-  secondStatValue String
-  passive String
+  name               String             @id
+  stars              String
+  type               String
+  baseATK            Int
+  secondStat         String
+  secondStatValue    String
+  passive            String
   passiveDescription String
-  characters CharacterWeapons[]
+  characters         CharacterWeapons[]
 }
 
 model CharacterWeapons {
-  id Int @id @default(autoincrement())
-  character Character @relation(fields: [characterName], references: [name])
+  id            Int       @id @default(autoincrement())
+  character     Character @relation(fields: [characterName], references: [name])
   characterName String
-  weapon Weapon @relation(fields: [weaponName], references: [name])
-  weaponName String
-  build String?
+  weapon        Weapon    @relation(fields: [weaponName], references: [name])
+  weaponName    String
+  build         String?
 }
 
 model CharacterArtifactStats {
-  id Int @id @default(autoincrement())
-  character Character @relation(fields: [characterName], references: [name])
+  id            Int       @id @default(autoincrement())
+  character     Character @relation(fields: [characterName], references: [name])
   characterName String
-  flower String
-  plume String
-  sands String
-  goblet String
-  circlet String
-  subStats String
-  build String
+  flower        String
+  plume         String
+  sands         String
+  goblet        String
+  circlet       String
+  subStats      String
+  build         String
 }
 
 model Artifacts {
-  name String @id
-  twoPiece String
-  fourPiece String
+  name       String                  @id
+  twoPiece   String
+  fourPiece  String
   characters CharacterArtifactSets[]
 }
 
 model CharacterArtifactSets {
-  id Int @id @default(autoincrement())
-  character Character @relation(fields: [characterName], references: [name])
+  id            Int       @id @default(autoincrement())
+  character     Character @relation(fields: [characterName], references: [name])
   characterName String
-  artifact Artifacts @relation(fields: [artifactName], references: [name])
-  artifactName String
-  build String
+  artifact      Artifacts @relation(fields: [artifactName], references: [name])
+  artifactName  String
+  build         String
 }
 
 model CharacterTalents {
-  id Int @id @default(autoincrement())
-  character Character @relation(fields: [characterName], references: [name])
-  characterName String
-  talentType String
-  talentName String
+  id                Int                @id @default(autoincrement())
+  character         Character          @relation(fields: [characterName], references: [name])
+  characterName     String
+  talentType        String
+  talentName        String
   talentDesciprtion String
-  parameters Parameters[]
-  talentParameters TalentParameters[]
+  parameters        Parameters[]
+  talentParameters  TalentParameters[]
 }
 
 model CharacterConstellations {
-  id Int @id @default(autoincrement())
-  character Character @relation(fields: [characterName], references: [name])
-  characterName String
-  constellationName String
+  id                       Int       @id @default(autoincrement())
+  character                Character @relation(fields: [characterName], references: [name])
+  characterName            String
+  constellationName        String
   constellationDescription String
 }
 
 model Parameters {
-  id Int @id @default(autoincrement())
-  talent CharacterTalents @relation(fields: [talentId], references: [id])
-  talentId Int
-  parameterName String
+  id              Int               @id @default(autoincrement())
+  talent          CharacterTalents  @relation(fields: [talentId], references: [id])
+  talentId        Int
+  parameterName   String
   parameterValues ParameterValues[]
 }
 
 model ParameterValues {
-  id Int @id @default(autoincrement())
-  pName Parameters @relation(fields: [parameterId], references: [id])
+  id          Int        @id @default(autoincrement())
+  pName       Parameters @relation(fields: [parameterId], references: [id])
   parameterId Int
-  level Int
-  value String
+  level       Int
+  value       String
 }
 
 model TalentParameters {
-  id Int @id @default(autoincrement())
-  talent CharacterTalents @relation(fields: [talentId], references: [id])
-  talentId Int
+  id            Int              @id @default(autoincrement())
+  talent        CharacterTalents @relation(fields: [talentId], references: [id])
+  talentId      Int
   parameterName String
-  lv1 String
-  lv2 String
-  lv3 String
-  lv4 String
-  lv5 String
-  lv6 String
-  lv7 String
-  lv8 String
-  lv9 String
-  lv10 String
-  lv11 String
-  lv12 String
-  lv13 String
-  lv14 String
-  lv15 String
+  lv1           String
+  lv2           String
+  lv3           String
+  lv4           String
+  lv5           String
+  lv6           String
+  lv7           String
+  lv8           String
+  lv9           String
+  lv10          String
+  lv11          String
+  lv12          String
+  lv13          String
+  lv14          String
+  lv15          String
+}
+
+model Passives {
+  id                 Int       @id @default(autoincrement())
+  character          Character @relation(fields: [characterName], references: [name])
+  characterName      String
+  passiveType        String
+  passiveName        String
+  passiveDescription String
 }

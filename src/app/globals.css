@@ -34,26 +34,32 @@ body {
 
 .Pyro {
   color: #ef7938;
+  font-weight: 600;
 }
 
 .Dendro {
   color: #a5c83b;
+  font-weight: 600;
 }
 
 .Cryo {
   color: #9fd6e3;
+  font-weight: 600;
 }
 
 .Anemo {
   color: #74c2a8;
+  font-weight: 600;
 }
 
 .Hydro {
   color: #4cc2f1;
+  font-weight: 600;
 }
 
 .Geo {
   color: #fab632;
+  font-weight: 600;
 }
 
 .stars-5 {
@@ -79,4 +85,9 @@ body {
 .yellow {
   color: #fab632;
   font-weight: 600;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 3rem;
 }
