@@ -17,19 +17,19 @@ export default function CharacterTalents2({ talents }: { talents: Array<any> }) 
         setLevels(newLevels);
     }
 
-    console.log("ech ojezu", sortedTalentParameters);
+    //console.log("ech ojezu", sortedTalentParameters);
 
     return (
         <div className="bg-poldark md:rounded-xl shadow-outer flex flex-col max-w-3xl xl:max-w-7xl w-full my-2 p-2">
-            <div className="text-5xl font-semibold text-center pt-3">Skills</div>
+            <div className="text-5xl font-semibold text-center pt-3 drop-shadow-text">Character Talents</div>
             
             {sortedTalentParameters?.map((talent, index) => (
-                <div key={talent.id} className="bg-dark75 m-5 mb-10 p-5 rounded-md shadow-around">
+                <div key={talent.id} className="bg-dark75 m-5 p-5 rounded-md shadow-around">
                     <div className="flex items-center mb-4">
                         <img className="w-12" src={`/images/talenticons/${talent.characterName.toLowerCase().replaceAll(" ", "")}/${talent.talentType}.webp`} />
-                        <p className="ml-3 text-3xl font-semibold">{talent.talentType}: {talent.talentName}</p>
+                        <p className="ml-3 text-4xl font-semibold">{talent.talentType}: {talent.talentName}</p>
                     </div>
-                    <p className="text-2xl" dangerouslySetInnerHTML={{__html: talent.talentDesciprtion}}></p>
+                    <p className="text-2xl py-3" dangerouslySetInnerHTML={{__html: talent.talentDesciprtion}}></p>
                     <div className="bg-dark75 m-3 p-6 pt-4 rounded-md shadow-around mt-8">
                         <p className="text-2xl font-semibold">Skill Attributes (Lv. {levels[index]})</p>
                         <input className="w-full accent-yellow my-2" type="range" min="1" max="15" onChange={handleLevelsChange(index)}/>

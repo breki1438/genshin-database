@@ -7,6 +7,8 @@ import SubPageMenu from '@/components/SubPageMenu';
 import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
 import CharacterTalents from '@/components/CharacterTalents';
 import CharacterTalents2 from '@/components/talents/CharacterTalents2';
+import CharacterPassives from "@/components/passives/CharacterPassives";
+import YouTubeVideo from "@/components/yt/YouTubeVideo";
 
 export default async function Page({ params }: { params: { character: string }}) {
     revalidatePath('/');
@@ -18,6 +20,8 @@ export default async function Page({ params }: { params: { character: string }})
     };
 
     const talenty = await getCharacterTalents(characterData.character.name);
+
+    const passives = await getCharacterPasives(characterData.character.name);
 
     return (         
             <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
@@ -33,15 +37,17 @@ export default async function Page({ params }: { params: { character: string }})
                     <div id='talents' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
                       <CharacterTalents2 talents={ talenty }/>
                     </div>
-                    <div className='md:mt-44 xl:mt-50 flex flex-wrap m-auto w-full max-w-3xl xl:max-w-7xl justify-center xl:justify-between items-start'>
-                        <CharacterTalents characterData={ characterData } />
+                    <div id='passives' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
+                        <CharacterPassives passives={ passives }/>
+                    </div>
+                    <div className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
                         <CharacterConstellations constellations={ characterData.characterConstellations } />    
                     </div>
                     <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
                         <RecommendedBuilds weapons={ characterData.weapons } characterWeapons={ characterData.characterWeapons } artifactStats={ characterData.artifactStats } characterArtifacts={ characterData.artifactSets } artifacts={ characterData.artifacts } characterData={ characterData }/>
                     </div>
                     <div id='yt' className='flex m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center'>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/0OneqTKJBF8?si=umbS6etAfft5hWup" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <YouTubeVideo />
                     </div>
                 </div>                                                                                                   
             </div> 
@@ -52,7 +58,7 @@ export default async function Page({ params }: { params: { character: string }})
 async function getCharacter(postac: string) {
     const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
         : '';
     const res = await fetch(`${baseUrl}/api/characters?character=${postac}`);
     if(!res.ok) {
@@ -65,9 +71,22 @@ async function getCharacter(postac: string) {
 async function getCharacterTalents(postac: string) {
   const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
         : '';
     const res = await fetch(`${baseUrl}/api/characters/talents?character=${postac}`);
+    if(!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.json();
+}
+
+async function getCharacterPasives(postac: string) {
+  const isServer = typeof window === 'undefined';
+    const baseUrl = isServer
+        ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
+        : '';
+    const res = await fetch(`${baseUrl}/api/characters/passives?character=${postac}`);
     if(!res.ok) {
         throw new Error('Failed to fetch data')
     }

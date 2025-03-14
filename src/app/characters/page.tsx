@@ -18,7 +18,7 @@ export default async function Page() {
 async function getCharacters() {
     const isServer = typeof window === 'undefined';
     const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || 'https://localhost:3000'
+        ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
         : '';
     const res = await fetch(`${baseUrl}/api/test`);
     if(!res.ok) {
