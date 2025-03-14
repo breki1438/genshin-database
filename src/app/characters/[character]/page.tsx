@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { character: string }})
                         <RecommendedBuilds weapons={ characterData.weapons } characterWeapons={ characterData.characterWeapons } artifactStats={ characterData.artifactStats } characterArtifacts={ characterData.artifactSets } artifacts={ characterData.artifacts } characterData={ characterData }/>
                     </div>
                     <div id='yt' className='flex m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center'>
-                        {/*<YouTubeVideo />*/}
+                        <YouTubeVideo />
                     </div>
                 </div>                                                                                                   
             </div> 
