@@ -5,46 +5,61 @@ import CharacterConstellations from '@/components/CharacterConstellations';
 import NavBar from '@/components/NavBar';
 import SubPageMenu from '@/components/SubPageMenu';
 import RecommendedBuilds from '@/components/builds/RecommendedBuilds';
-import CharacterTalents from '@/components/CharacterTalents';
 import CharacterTalents2 from '@/components/talents/CharacterTalents2';
 import CharacterPassives from "@/components/passives/CharacterPassives";
 import YouTubeVideo from "@/components/yt/YouTubeVideo";
 
 export default async function Page({ params }: { params: { character: string }}) {
     revalidatePath('/');
-    const postac = params.character;
-    const characterData = await getCharacter(postac);
-    const obrazek = `/images/${characterData.character.name.toLowerCase().replaceAll(' ', '')}/${characterData.character.name.toLowerCase().replaceAll(' ', '')}_background.png`;
-    const obrazek2 = {
-        backgroundImage: `url(${obrazek})`
+    const characterName = params.character;
+    const characterData = await getCharacter(characterName);
+    const characterData2 = await getCharacterData(characterName);
+    const bgImg = `/images/${characterData.character.url}/${characterData.character.url}_background.png`;
+    const bgImgUrl = {
+        backgroundImage: `url(${bgImg})`
     };
 
-    const talenty = await getCharacterTalents(characterData.character.name);
+    const characterBasicInfo = {
+        name: characterData2.name,
+        stars: characterData2.stars,
+        element: characterData2.element,
+        weaponType: characterData2.weaponType,
+        region: characterData2.region,
+        book: characterData2.book,
+        weeklyBoss: characterData2.weeklyBoss,
+        crystal: characterData2.crystal,
+        bossMaterial: characterData2.bossMaterial,
+        localSpeciality: characterData2.localSpeciality,
+        enemyDrop: characterData2.enemyDrop,
+        description: characterData2.description,
+        url: characterData2.url,
+    }
 
-    const passives = await getCharacterPasives(characterData.character.name);
+
+    //console.log("---------------Postac---------------\n", characterBasicInfo);
 
     return (         
-            <div className='flex flex-col w-full m-auto justify-center' style={ obrazek2 }>
-                <div className='backdrop-blur-xl bg-no-repeat bg-top-100' style={{ backgroundImage: `url('/images/${characterData.character?.url}/${characterData.character?.url}_wish.webp')`}}>
+            <div className='flex flex-col w-full m-auto justify-center' style={ bgImgUrl }>
+                <div className='backdrop-blur-xl bg-no-repeat bg-top-100' style={{ backgroundImage: `url('/images/${characterData2.url}/${characterData2.url}_wish.webp')`}}>
                     <NavBar />
                     <div id='info' className='flex justify-center'>
-                        <CharacterTopBox selectedCharacter={ characterData.character } />   
+                        <CharacterTopBox selectedCharacter={ characterBasicInfo } />
                     </div>
                     <div className='flex flex-wrap m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center xl:justify-between'>
                         <SubPageMenu />
-                        <CharacterInfoBox character={ characterData.character } />
+                        <CharacterInfoBox character={ characterBasicInfo } />
                     </div>
                     <div id='talents' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                      <CharacterTalents2 talents={ talenty }/>
+                        <CharacterTalents2 talents={ characterData2.talents } />
                     </div>
                     <div id='passives' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <CharacterPassives passives={ passives }/>
+                        <CharacterPassives passives={ characterData2.passives }/>
                     </div>
                     <div className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <CharacterConstellations constellations={ characterData.characterConstellations } />    
+                        <CharacterConstellations constellations={ characterData2.constellations } />
                     </div>
                     <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                        <RecommendedBuilds weapons={ characterData.weapons } characterWeapons={ characterData.characterWeapons } artifactStats={ characterData.artifactStats } characterArtifacts={ characterData.artifactSets } artifacts={ characterData.artifacts } characterData={ characterData }/>
+                        <RecommendedBuilds weapons={ characterData.weapons } artifacts={ characterData.artifacts } characterData2={ characterData2 }/>
                     </div>
                     <div id='yt' className='flex m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center'>
                         <YouTubeVideo />
@@ -55,12 +70,12 @@ export default async function Page({ params }: { params: { character: string }})
     );
 }
 
-async function getCharacter(postac: string) {
+async function getCharacter(name: string) {
     const isServer = typeof window === 'undefined';
     const baseUrl = isServer
         ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
         : '';
-    const res = await fetch(`${baseUrl}/api/characters?character=${postac}`);
+    const res = await fetch(`${baseUrl}/api/characters?character=${name}`);
     if(!res.ok) {
         throw new Error('Failed to fetch data')
     }
@@ -68,25 +83,12 @@ async function getCharacter(postac: string) {
     return res.json()
 }
 
-async function getCharacterTalents(postac: string) {
-  const isServer = typeof window === 'undefined';
+async function getCharacterData(name: string) {
+    const isServer = typeof window === 'undefined';
     const baseUrl = isServer
         ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
         : '';
-    const res = await fetch(`${baseUrl}/api/characters/talents?character=${postac}`);
-    if(!res.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json();
-}
-
-async function getCharacterPasives(postac: string) {
-  const isServer = typeof window === 'undefined';
-    const baseUrl = isServer
-        ? process.env.NEXT_PUBLIC_API_URL || `https://${process.env.VERCEL_URL}` || 'https://localhost:3000'
-        : '';
-    const res = await fetch(`${baseUrl}/api/characters/passives?character=${postac}`);
+    const res = await fetch(`${baseUrl}/api/characterdata?character=${name}`);
     if(!res.ok) {
         throw new Error('Failed to fetch data')
     }
