@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,11 +21,12 @@ model Character {
   enemyDrop       String
   description     String
   url             String
-  weapons         CharacterWeapons[]
-  artifacts       CharacterArtifactStats[]
+  added           Int
   artifactSets    CharacterArtifactSets[]
-  talents         CharacterTalents[]
+  artifacts       CharacterArtifactStats[]
   constellations  CharacterConstellations[]
+  talents         CharacterTalents[]
+  weapons         CharacterWeapons[]
   passives        Passives[]
 }
 
@@ -46,16 +44,15 @@ model Weapon {
 
 model CharacterWeapons {
   id            Int       @id @default(autoincrement())
-  character     Character @relation(fields: [characterName], references: [name])
   characterName String
-  weapon        Weapon    @relation(fields: [weaponName], references: [name])
   weaponName    String
   build         String?
+  character     Character @relation(fields: [characterName], references: [name])
+  weapon        Weapon    @relation(fields: [weaponName], references: [name])
 }
 
 model CharacterArtifactStats {
   id            Int       @id @default(autoincrement())
-  character     Character @relation(fields: [characterName], references: [name])
   characterName String
   flower        String
   plume         String
@@ -64,6 +61,7 @@ model CharacterArtifactStats {
   circlet       String
   subStats      String
   build         String
+  character     Character @relation(fields: [characterName], references: [name])
 }
 
 model Artifacts {
@@ -75,51 +73,50 @@ model Artifacts {
 
 model CharacterArtifactSets {
   id            Int       @id @default(autoincrement())
-  character     Character @relation(fields: [characterName], references: [name])
   characterName String
-  artifact      Artifacts @relation(fields: [artifactName], references: [name])
   artifactName  String
   build         String
+  artifact      Artifacts @relation(fields: [artifactName], references: [name])
+  character     Character @relation(fields: [characterName], references: [name])
 }
 
 model CharacterTalents {
   id                Int                @id @default(autoincrement())
-  character         Character          @relation(fields: [characterName], references: [name])
   characterName     String
   talentType        String
   talentName        String
   talentDesciprtion String
+  character         Character          @relation(fields: [characterName], references: [name])
   parameters        Parameters[]
   talentParameters  TalentParameters[]
 }
 
 model CharacterConstellations {
   id                       Int       @id @default(autoincrement())
-  character                Character @relation(fields: [characterName], references: [name])
   characterName            String
   constellationName        String
   constellationDescription String
+  character                Character @relation(fields: [characterName], references: [name])
 }
 
 model Parameters {
   id              Int               @id @default(autoincrement())
-  talent          CharacterTalents  @relation(fields: [talentId], references: [id])
   talentId        Int
   parameterName   String
   parameterValues ParameterValues[]
+  talent          CharacterTalents  @relation(fields: [talentId], references: [id])
 }
 
 model ParameterValues {
   id          Int        @id @default(autoincrement())
-  pName       Parameters @relation(fields: [parameterId], references: [id])
   parameterId Int
   level       Int
   value       String
+  pName       Parameters @relation(fields: [parameterId], references: [id])
 }
 
 model TalentParameters {
   id            Int              @id @default(autoincrement())
-  talent        CharacterTalents @relation(fields: [talentId], references: [id])
   talentId      Int
   parameterName String
   lv1           String
@@ -137,13 +134,14 @@ model TalentParameters {
   lv13          String
   lv14          String
   lv15          String
+  talent        CharacterTalents @relation(fields: [talentId], references: [id])
 }
 
 model Passives {
   id                 Int       @id @default(autoincrement())
-  character          Character @relation(fields: [characterName], references: [name])
   characterName      String
-  passiveType        String
   passiveName        String
   passiveDescription String
+  passiveType        String
+  character          Character @relation(fields: [characterName], references: [name])
 }

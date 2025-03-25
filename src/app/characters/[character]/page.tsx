@@ -13,9 +13,9 @@ import SideBar from "@/components/SideBar";
 export default async function Page({ params }: { params: { character: string }}) {
     revalidatePath('/');
     const characterName = params.character;
-    const characterData = await getCharacter(characterName);
+    //const characterData = await getCharacter(characterName);
     const characterData2 = await getCharacterData(characterName);
-    const bgImg = `/images/${characterData.character.url}/${characterData.character.url}_background.png`;
+    const bgImg = `/images/${characterData2.url}/${characterData2.url}_background.png`;
     const bgImgUrl = {
         backgroundImage: `url(${bgImg})`
     };
@@ -61,10 +61,10 @@ export default async function Page({ params }: { params: { character: string }})
                                 <CharacterConstellations constellations={ characterData2.constellations } />
                             </div>
                             <div id='builds' className='flex m-auto w-full max-w-3xl xl:max-w-7xl justify-center'>
-                                <RecommendedBuilds weapons={ characterData.weapons } artifacts={ characterData.artifacts } characterData2={ characterData2 }/>
+                                {/*<RecommendedBuilds weapons={ characterData.weapons } artifacts={ characterData.artifacts } characterData2={ characterData2 }/>*/}
                             </div>
                             <div id='yt' className='flex m-auto w-full md:max-w-3xl xl:max-w-7xl justify-center'>
-                                <YouTubeVideo />
+                                {/*<YouTubeVideo />*/}
                             </div>
                         </div>
                     </div>

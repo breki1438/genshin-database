@@ -10,7 +10,12 @@ export async function GET(req: Request) {
             element: true,
             weaponType: true,
             url: true
-        }
+        },
+        orderBy: [
+            { added: 'desc' },
+            { stars: 'desc' },
+            { name: 'asc' }
+        ]
     })
     await prisma.$disconnect()
 
