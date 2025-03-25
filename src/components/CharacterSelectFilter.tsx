@@ -37,7 +37,7 @@ export default function CharacterSelectFilter({ characters }: { characters: Arra
     } 
 
     return (
-        <div className='max-w-7xl flex flex-col m-auto'>
+        <div className='max-w-7xl w-full flex flex-col m-auto justify-items-start h-screen'>
             <div className='flex flex-col'>
                 <div className='flex flex-col xl:grid xl:grid-cols-5 justify-between m-2 items-center'>
                     <SearchBar characters={characters} onFilterChange={handleFilterChange}/>

@@ -12,7 +12,7 @@ export default function WeaponFilter({ onWeaponChange, selectedWeapon }: { onWea
     );
 
     return (
-        <div className='w-screen sm:max-w-lg bg-dark flex flex-row shadow-outer sm:rounded-xl items-center justify-evenly p-2 sm:p-4 my-2'>             
+        <div className='w-screen sm:max-w-lg border border-[#888888] bg-gradient-to-br from-[#232A37]/[75%] to-[#1E242F]/[75%] flex flex-row shadow-outer sm:rounded-xl items-center justify-evenly p-2 sm:p-4 my-2'>
             {renderCheckbox('Sword', '/images/weapontype/Icon_Sword.webp', 'Sword')}
             {renderCheckbox('Claymore', '/images/weapontype/Icon_Claymore.webp', 'Claymore')}
             {renderCheckbox('Polearm', '/images/weapontype/Icon_Polearm.webp', 'Polearm')}

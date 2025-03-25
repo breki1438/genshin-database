@@ -12,7 +12,7 @@ export default function ElementFilter({ onElementChange, selectedElement }: { on
     );
 
     return (
-        <div className='w-screen sm:max-w-xl bg-dark flex flex-row shadow-outer sm:rounded-xl items-center justify-evenly p-2 sm:p-4 my-2'>             
+        <div className='w-screen sm:max-w-xl border border-[#888888] bg-gradient-to-br from-[#232A37]/[75%] to-[#1E242F]/[75%] flex flex-row shadow-outer sm:rounded-xl items-center justify-evenly p-2 sm:p-4 my-2'>
             {renderCheckbox('Electro', '/images/elements/Element_Electro.svg', 'Electro')}
             {renderCheckbox('Hydro', '/images/elements/Element_Hydro.svg', 'Hydro')}
             {renderCheckbox('Pyro', '/images/elements/Element_Pyro.svg', 'Pyro')}
